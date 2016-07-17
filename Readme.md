@@ -30,7 +30,7 @@ const plugins = [
 #### Arguments
 
 - `trigger: String || RegExp` — the trigger to match the inputed character against. The trigger string can also be one of the keywords: `enter`, `space` or `tab`.
-- `propertes: Object` — a dictionary of properties to set on the block.
+- `properties: Object` — a dictionary of properties to set on the block.
 - `[before: RegExp]` — a regexp that must match the text before the trigger for the replacement to occur. Any capturing groups in the regexp will be deleted from the text content.
 - `[after: RegExp]` — a regexp that must match the text after the trigger for the replacement to occur. Any capturing groups in the regexp will be deleted from the text content.
 - `[ignoreIn: Array]` — an array of block types to ignore replacement inside.
