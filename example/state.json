@@ -6,11 +6,7 @@
       "nodes": [
         {
           "kind": "text",
-          "ranges": [
-            {
-              "text": "Try typing '> ' at the start of this block."
-            }
-          ]
+          "text": "Try typing '> ' at the start of this block."
         }
       ]
     },
@@ -20,11 +16,7 @@
       "nodes": [
         {
           "kind": "text",
-          "ranges": [
-            {
-              "text": "Try typing '### ' at the start of this block."
-            }
-          ]
+          "text": "Try typing '### ' at the start of this block."
         }
       ]
     },
@@ -34,11 +26,7 @@
       "nodes": [
         {
           "kind": "text",
-          "ranges": [
-            {
-              "text": "Try typing '---<enter>' in a new block."
-            }
-          ]
+          "text": "Try typing '---<enter>' in a new block."
         }
       ]
     }
