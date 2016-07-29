@@ -1,7 +1,7 @@
 {
   "name": "slate-auto-replace-block",
   "description": "A Slate plugin to automatically set properties on a block when the user types a string of matching text.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "repository": "git://github.com/ianstormtaylor/slate-auto-replace-block.git",
   "main": "./dist/index.js",
