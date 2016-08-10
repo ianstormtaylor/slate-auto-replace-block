@@ -9,8 +9,13 @@ class Example extends React.Component {
 
   nodes = {
     quote: props => <blockquote {...props.attributes}><p>{props.children}</p></blockquote>,
-    header: props => <h3 {...props.attributes}>{props.children}</h3>,
-    hr: props => <hr />
+    hr: props => <hr />,
+    header: props => {
+      const { attributes, children, node } = props
+      const level = node.data.get('level')
+      const Tag = `h${level}`
+      return <Tag {...attributes}>{children}</Tag>
+    }
   }
 
   plugins = [
@@ -24,8 +29,13 @@ class Example extends React.Component {
     AutoReplaceBlock({
       trigger: 'space',
       before: /^(#{1,6})$/,
-      properties: {
-        type: 'header'
+      properties: (data, matches) => {
+        const [ hashes ] = matches.before
+        const level = hashes.length
+        return {
+          type: 'header',
+          data: { level }
+        }
       }
     }),
     AutoReplaceBlock({

@@ -6,16 +6,23 @@
   "repository": "git://github.com/ianstormtaylor/slate-auto-replace-block.git",
   "main": "./dist/index.js",
   "scripts": {
-    "prepublish": "make dist",
-    "start": "make start"
+    "clean": "rm -rf ./dist ./node_modules",
+    "dist": "babel ./lib --out-dir ./dist",
+    "example": "browserify ./example/index.js --debug --transform babelify > ./example/build.js",
+    "gh-pages": "npm run dist && npm run example && gh-pages --dist ./example",
+    "lint": "eslint 'lib/**/*.js' 'example/index.js'",
+    "prepublish": "npm run dist",
+    "start": "http-server ./example -p 8888",
+    "test": "npm run lint",
+    "watch": "npm-run-all --parallel --print-label watch:dist watch:example start",
+    "watch:dist": "babel ./lib --out-dir ./dist --watch",
+    "watch:example": "watchify ./example/index.js --debug --transform babelify --outfile ./example/build.js"
   },
   "dependencies": {
-    "component-type": "^1.2.1",
-    "escape-regex-string": "^1.0.4"
+    "escape-regex-string": "^1.0.4",
+    "type-of": "^2.0.1"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-dom": "*",
     "slate": "*"
   },
   "devDependencies": {
@@ -29,7 +36,9 @@
     "eslint": "^3.0.1",
     "eslint-plugin-import": "^1.10.2",
     "eslint-plugin-react": "^5.2.2",
+    "gh-pages": "^0.11.0",
     "http-server": "^0.9.0",
+    "npm-run-all": "^2.3.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "slate": "^0.8.0",
