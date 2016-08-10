@@ -8,9 +8,11 @@ import { Editor, Raw } from 'slate'
 class Example extends React.Component {
 
   nodes = {
-    quote: props => <blockquote {...props.attributes}><p>{props.children}</p></blockquote>,
+    blockquote: props => <blockquote {...props.attributes}><p>{props.children}</p></blockquote>,
     hr: props => <hr />,
-    header: props => {
+    ul: props => <ul {...props.attributes}>{props.children}</ul>,
+    li: props => <li {...props.attributes}>{props.children}</li>,
+    h: props => {
       const { attributes, children, node } = props
       const level = node.data.get('level')
       const Tag = `h${level}`
@@ -23,7 +25,17 @@ class Example extends React.Component {
       trigger: 'space',
       before: /^(>)$/,
       properties: {
-        type: 'quote'
+        type: 'blockquote'
+      }
+    }),
+    AutoReplaceBlock({
+      trigger: 'space',
+      before: /^(-)$/,
+      properties: {
+        type: 'li'
+      },
+      wrap: {
+        type: 'ul'
       }
     }),
     AutoReplaceBlock({
@@ -33,7 +45,7 @@ class Example extends React.Component {
         const [ hashes ] = matches.before
         const level = hashes.length
         return {
-          type: 'header',
+          type: 'h',
           data: { level }
         }
       }

@@ -22,3 +22,7 @@ blockquote {
   padding-left: 20px;
   border-left: 2px solid #aaa;
 }
+
+:not(ul) > li {
+  background: red;
+}

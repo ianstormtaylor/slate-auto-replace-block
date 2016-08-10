@@ -40,6 +40,7 @@ const plugins = [
 - `[after: RegExp]` — a regexp that must match the text after the trigger for the replacement to occur. Any capturing groups in the regexp will be deleted from the text content.
 - `[ignoreIn: Array]` — an array of block types to ignore replacement inside.
 - `[onlyIn: Array]` — an array of block types to only replace inside.
+- `[wrap: Object || Function]` — a dictionary of properties for a block to wrap the block in.
 
 
 ## Development
