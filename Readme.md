@@ -4,6 +4,11 @@
 A Slate plugin to automatically set properties on a block when the user types a string of matching text. Useful for implementhing "auto-markdown" or other hotkey behaviors.
 
 
+## Demo
+
+https://ianstormtaylor.github.io/slate-auto-replace-block/
+
+
 ## Install
 
 ```
@@ -35,6 +40,22 @@ const plugins = [
 - `[after: RegExp]` — a regexp that must match the text after the trigger for the replacement to occur. Any capturing groups in the regexp will be deleted from the text content.
 - `[ignoreIn: Array]` — an array of block types to ignore replacement inside.
 - `[onlyIn: Array]` — an array of block types to only replace inside.
+
+
+## Development
+
+Clone the repository and then run:
+
+```
+npm install
+npm watch
+```
+
+And open the example page in your browser:
+
+```
+http://localhost:8888/
+```
 
 
 ## License
